@@ -1,0 +1,1 @@
+#have to write singlr training class for all models
