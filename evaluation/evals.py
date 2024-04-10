@@ -45,7 +45,7 @@ def correct(output, target, topk=(1,)):
 
 
 # @measure_energy
-@measure_energy(domains=[NvidiaGPUDomain(0)])
+@measure_energy(domains=[NvidiaGPUDomain(7)])
 def accuracy(model, dataloader, topk=(1,)):
     """Compute accuracy of a model over a dataloader for various topk
 
