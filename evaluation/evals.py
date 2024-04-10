@@ -4,6 +4,8 @@ import numpy as np
 import torch
 import time
 import psutil
+from pyJoules.energy_meter import measure_energy
+from pyJoules.device.nvidia_device import NvidiaGPUDomain
 
 
 def correct(output, target, topk=(1,)):
@@ -42,6 +44,8 @@ def correct(output, target, topk=(1,)):
         return res
 
 
+# @measure_energy
+@measure_energy(domains=[NvidiaGPUDomain(0)])
 def accuracy(model, dataloader, topk=(1,)):
     """Compute accuracy of a model over a dataloader for various topk
 
