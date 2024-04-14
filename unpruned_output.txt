@@ -1,6 +1,0 @@
-56.61
-56.57
-\energy computation for original model completed.
-56.61
-56.57
-57.09
