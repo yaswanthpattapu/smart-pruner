@@ -45,7 +45,4 @@ Check the ipynb files for example usage.
   3. Import it in ipynb file.
 
 ## Contributing
-We welcome contributions to Smart-Pruner! If you have suggestions, bug reports, or want to add new features, please fork the repository and submit a pull request.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+We welcome contributions to Smart-Pruner! If you have suggestions, bug reports, or want to add new features, please fork the repository and submit a pull request.  
