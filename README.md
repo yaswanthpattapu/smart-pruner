@@ -16,14 +16,7 @@ Smart-Pruner is a Pytorch based module designed to apply various pruning techniq
 
 
 ## Usage
-1. Navigate to the Smart-Pruner directory:
-   ```shell
-   cd Smart-Pruner
-   ```
-2. Run the Smart-Pruner module with your desired configurations:
-   ```shell
-   python smart_pruner.py --model <model_name> --dataset <dataset_name> --pruning_method <method_name>
-   ```
+Check the ipynb filees for example usage.
 
 ## Pruning Methods
 - List the pruning methods supported by Smart-Pruner, such as:
@@ -35,14 +28,15 @@ Smart-Pruner is a Pytorch based module designed to apply various pruning techniq
 ## Architectures
 - Specify the model-dataset architectures compatible with Smart-Pruner, for example:
   - ResNet-50 with CIFAR-10
-  - MobileNetV2 with ImageNet
-  - ...
+  - AlexNet with CIFAR10
+  - LeNet on MNIST
+  - VggNet on CIFAR10
 
 ## Incorporating New Pruning Methods
 - Smart-Pruner allows easy integration of new pruning methods. Follow these steps:
-  1. Implement your new pruning method in the `pruning_methods.py` file.
-  2. Add the method to the list of supported methods in `smart_pruner.py`.
-  3. Run Smart-Pruner with the new method using the `--pruning_method` argument.
+  1. Implement your new pruning method in the `/pruning` folder.
+  2. Add the new pruning file name in init file of it.
+  3. Import it in ipynb file.
 
 ## Contributing
 We welcome contributions to Smart-Pruner! If you have suggestions, bug reports, or want to add new features, please fork the repository and submit a pull request.
