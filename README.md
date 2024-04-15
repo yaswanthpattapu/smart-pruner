@@ -11,7 +11,7 @@ Smart-Pruner is a Pytorch based module designed to apply various pruning techniq
 ## Installation
 1. Clone the Smart-Pruner repository:
    ```shell
-   git clone https://github.com/your-username/Smart-Pruner.git
+   git clone https://github.com/prabhas2002/Smart-Pruner.git
    ```
 
 
