@@ -13,17 +13,23 @@ Smart-Pruner is a Pytorch based module designed to apply various pruning techniq
    ```shell
    git clone https://github.com/prabhas2002/Smart-Pruner.git
    ```
-
+2 Install the required dependencies:
+```shell
+pip install -r requirements.txt
+```
 
 ## Usage
 Check the ipynb filees for example usage.
 
 ## Pruning Methods
 - List the pruning methods supported by Smart-Pruner, such as:
-  - Iterative Pruning
-  - Magnitude Pruning
-  - Weight Rewinding
-  - ...
+  - Global Pruning
+  - Random Unstructured Pruning
+  - L1-Norm Based Filter pruning
+  - Ln Structured pruning
+  -  Pruning with 2:4 Sparsity (check research paper)
+  -  Decay Pruning
+  -  Thinet (check research paper)
 
 ## Architectures
 - Specify the model-dataset architectures compatible with Smart-Pruner, for example:
