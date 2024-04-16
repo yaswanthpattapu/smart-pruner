@@ -27,7 +27,8 @@ class Trainer:
     def train_step(self):
         self.model.train()  # setting model to training mode
         train_loss = 0
-        device=("cuda:7" if torch.cuda.is_available() else "cpu")
+        # device=("cuda:3" if torch.cuda.is_available() else "cpu")
+        device = "cpu"
         self.model.to(device)
 
         # setting requires_grad =True

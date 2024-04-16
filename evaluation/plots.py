@@ -43,45 +43,49 @@ def compare_compression_ratio_vs_accuracy(model, dataset , pruning_list):
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     compression_ratios = [0.1, 0.3, 0.5, 0.7, 0.9]
-    model_latency = measure_latency(model, test_loader)
+    #model_latency = measure_latency(model, test_loader)
     # print("Model latency = " + str(model_latency))
     pruning_technique_vs_accuracy = {}
-    pruning_technique_vs_speedup = {}
+    #pruning_technique_vs_speedup = {}
     for name, pruning in pruning_list.items(): 
         accuracies = []
-        speedups = []
+      #  speedups = []
         for compression_ratio in compression_ratios:
             pruning.setargs(model, 5, train_loader, criterion, optimizer, compression_ratio)
-            # pruning(model, 5, train_loader, criterion, optimizer, compression_ratio)
+            #pruning(model, 5, train_loader, criterion, optimizer, compression_ratio)
             pruned_model = pruning.prune_model()
             accuracies.append(accuracy(pruned_model, test_loader))
-            pruned_model_latency = measure_latency(pruned_model, test_loader)
+        #    pruned_model_latency = measure_latency(pruned_model, test_loader)
             # print(name+" "+"Pruned model latency = " + str(pruned_model_latency))
             # speedups.append(model_latency/pruned_model_latency)
-            speedups.append(measure_speedup(model, pruned_model, test_loader))
+         #   speedups.append(measure_speedup(model, pruned_model, test_loader))
         
         # plt.plot(compression_ratios, accuracies, label=name)
         pruning_technique_vs_accuracy[name] = accuracies
-        pruning_technique_vs_speedup[name] = speedups
+     #   pruning_technique_vs_speedup[name] = speedups
         # print()
+
+    print(pruning_technique_vs_accuracy)
         
+    markers=['D','P','s','v','o','X','*']
+    i=0
 
     for name, accuracies in pruning_technique_vs_accuracy.items():
-        plt.plot(compression_ratios, accuracies, label=name)
-
-    plt.xlabel("Compression ratio")
-    plt.ylabel("Accuracy")
-    plt.title("Compression ratio vs accuracy")
-    plt.legend()
+        plt.plot(compression_ratios, accuracies, label=name,marker=markers[i])
+        i=i+1
+    plt.xlabel("Pruning Rate",fontsize=17)
+    plt.ylabel("Accuracy",fontsize=17)
+    plt.title("Pruning Rate vs accuracy",fontsize=20)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
     plt.show()
 
-    for name, speedups in pruning_technique_vs_speedup.items():
-        plt.plot(compression_ratios, speedups, label=name)
+    # for name, speedups in pruning_technique_vs_speedup.items():
+    #     plt.plot(compression_ratios, speedups, label=name)
 
-    plt.xlabel("Compression ratio")
-    plt.ylabel("Speedup")
-    plt.title("Compression ratio vs Speedup")
-    plt.legend()
-    plt.show()
+    # plt.xlabel("Compression ratio")
+    # plt.ylabel("Speedup")
+    # plt.title("Compression ratio vs Speedup")
+    # plt.legend()
+    # plt.show()
     
     # def compare_compression_ratio_vs_latency(model)
